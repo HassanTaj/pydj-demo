@@ -11,6 +11,7 @@ class Todo(Base):
         self.task = task
         self.description = description
         self.endDate = endDate
+
     __tablename__ = 'Todo'
     id = Column(String, primary_key=True)
     task = Column(String, unique=False, nullable=True, primary_key=False)
