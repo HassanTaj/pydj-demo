@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="MRLEE" uuid="fa03bee2-be66-4779-ad90-0a40607f1b59">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://MRLEE\MSSQLSERVER:433;database=master</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="py_todos.sqlite3 [2]" uuid="5243cdb4-4ad3-446b-b75b-a928430d0261">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/web/py_todos.sqlite3</jdbc-url>
+    </data-source>
+  </component>
+</project>
