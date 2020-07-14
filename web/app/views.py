@@ -18,7 +18,7 @@ def home(request):
     t.description = 'desc'
     t.endDate = '1/1/1'
 
-    # uow.todoRepo.create(t)
+    uow.todoRepo.create(t)
     print(len(uow.todoRepo.get_all()))
 
     assert isinstance(request, HttpRequest)

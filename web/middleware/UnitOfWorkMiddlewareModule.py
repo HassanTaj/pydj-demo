@@ -10,14 +10,17 @@ from web.config import settings
 class UnitOfWorkMiddleware(MiddlewareMixin):
     def __init__(self, get_response):
         self.get_response = get_response
-        self.uow: UnitOfWork = UnitOfWork(ConnectionStringAdapter(
-            ConnectionStringModel(
+        self.uow: UnitOfWork = UnitOfWork(
+            ConnectionStringAdapter(
+                ConnectionStringModel(
                 username=settings.DATABASE['user'],
                 password=settings.DATABASE['password'],
                 host=settings.DATABASE['host'],
                 database=settings.DATABASE['database'],
                 db_url=settings.SQLITE_DATABASE["url"]
-            ), ConnectionType.sql_lite))
+                ),
+                ConnectionType.sql_lite)
+        )
         # One-time configuration and initialization.
 
     def process_request(self, request):
