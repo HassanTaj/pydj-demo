@@ -17,8 +17,7 @@ class UnitOfWorkMiddleware(MiddlewareMixin):
                 password=settings.DATABASE['password'],
                 host=settings.DATABASE['host'],
                 database=settings.DATABASE['database'],
-                db_url=settings.SQLITE_DATABASE["url"]
-),
+                db_url=settings.SQLITE_DATABASE["url"]),
                 ConnectionType.postgres_sql)
         )
         # One-time configuration and initialization.

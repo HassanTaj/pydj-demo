@@ -1,7 +1,6 @@
 """
 Definition of views.
 """
-
 from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpRequest
@@ -11,14 +10,13 @@ from lib.uow.UnitOfWorkModule import *
 def home(request):
     """Renders the home page."""
     uow: UnitOfWork = request.uow
-    # print('todos')
-    # t = Todo()
-    # # t.id =0
-    # t.task = 'task'
-    # t.description = 'desc'
-    # t.endDate = '1/1/1'
-
-    # uow.todoRepo.create(t)
+    print('todos')
+    t = Todo()
+    # t.id =0
+    t.task = 'task'
+    t.description = 'desc'
+    t.endDate = '1/1/1'
+    uow.todoRepo.create(t)
 
     assert isinstance(request, HttpRequest)
     return render(
