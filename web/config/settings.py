@@ -95,8 +95,8 @@ SQLITE_DATABASE = {
 }
 
 DATABASE = {
-    "host": ".",
-    'user': 'sa',
+    "host": "localhost:5432",
+    'user': 'postgres',
     'password': '123',
     'database': 'py_todos'
 }

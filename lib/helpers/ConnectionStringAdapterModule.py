@@ -1,7 +1,7 @@
 import urllib
 from .ConnectionTypeModule import ConnectionType
 from .ConnectionStringModelModule import ConnectionStringModel
-
+# import psycopg2
 
 class ConnectionStringAdapter(object):
     def __init__(self, connection_string_obj: ConnectionStringModel = None, connection_type: ConnectionType = None):
@@ -35,7 +35,8 @@ class ConnectionStringAdapter(object):
             # username:password@host/databasename
             con = f"""{self.conS.username}:{self.conS.password}@{self.conS.host}/{self.conS.username}"""
             params = urllib.parse.quote_plus(con)
-            self.conString = "postgresql://" % params
+            print(con)
+            self.conString = f"""postgresql://{con}"""
 
     # connection string builder
     def getConnectionString(self):

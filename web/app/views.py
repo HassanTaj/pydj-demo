@@ -11,15 +11,14 @@ from lib.uow.UnitOfWorkModule import *
 def home(request):
     """Renders the home page."""
     uow: UnitOfWork = request.uow
-    print('todos')
-    t = Todo()
-    # t.id =0
-    t.task = 'task'
-    t.description = 'desc'
-    t.endDate = '1/1/1'
+    # print('todos')
+    # t = Todo()
+    # # t.id =0
+    # t.task = 'task'
+    # t.description = 'desc'
+    # t.endDate = '1/1/1'
 
-    uow.todoRepo.create(t)
-    print(len(uow.todoRepo.get_all()))
+    # uow.todoRepo.create(t)
 
     assert isinstance(request, HttpRequest)
     return render(
@@ -28,6 +27,7 @@ def home(request):
         {
             'title': 'Home Page',
             'year': datetime.now().year,
+            'todos': uow.todoRepo.get_all()
         }
     )
 
