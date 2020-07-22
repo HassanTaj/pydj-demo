@@ -27,18 +27,23 @@ class BaseRepository(object):
 
             self._session.add(obj)
             self._session.commit()
-            pass
         except Exception as ex:
             print(ex)
 
     # Update
     def update(self, id, obj):
-        pass
+        try:
+            self._session.query(self.query_type).filter(self.query_type.id == id).update(obj, synchronize_session=False)
+                # .update({Customers.name: "Mr." + Customers.name}, synchronize_session=False)
+            self._session.commit()
+        except Exception as ex:
+            print(ex)
 
     # delete a complete object
     def delete(self, obj):
         try:
-            self._session.delete(obj)
+            m = self.get_by_id(obj.id)
+            self._session.delete(m)
             res = self._session.commit()
             return res
         except Exception as ex:

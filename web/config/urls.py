@@ -10,18 +10,20 @@ from web.app import views, forms
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('contact/', views.contact, name='contact'),
-    path('about/', views.about, name='about'),
     path('signin/',
          LoginView.as_view
-             (template_name='login.html',
-             authentication_form=forms.BootstrapAuthenticationForm,
-             extra_context={
-                 'title': 'Log in',
-                 'year': datetime.now().year,
-             }
-         ),
+         (template_name='login.html',
+          authentication_form=forms.BootstrapAuthenticationForm,
+          extra_context={
+              'title': 'Log in',
+              'year': datetime.now().year,
+          }
+          ),
          name='signin'),
+    path('todo/delete/<str:id>/', views.delete_todo, name='delete_todo'),
+    path('todo/save/', views.save_todo, name='save_todo'),
+    path('todo/<str:id>/', views.todo_form, name='todo_form'),
+    path('todo/', views.todo_form, name='todo_form'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('admin/', admin.site.urls),
 ]

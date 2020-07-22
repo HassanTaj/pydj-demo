@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <form action="/todo/save/" method="post" name="todo">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{todo.id}}">
+        <div class="form-group">
+            <lable for="task">Todo</lable>
+            <input name="task" type="text" class="form-control" required="required" placeholder="Enter Task"
+                   value="{{ todo.task }}">
+        </div>
+        <div class="form-group">
+            <lable for="description">Description</lable>
+            <input name="description" type="text" class="form-control" placeholder="Enter Description"
+                   value="{{ todo.description }}">
+        </div>
+        <div class="form-group">
+            <lable for="dueDate">Due Date</lable>
+            <input name="dueDate" type="date" class="form-control" placeholder="Enter Due Date"
+            value="{{ todo.endDate }}">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+{% endblock %}

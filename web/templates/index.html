@@ -6,13 +6,15 @@
         <table class="table table-striped table-bordered table-responsive">
             <thead>
             <tr>
-                <th colspan="4" class="" style="background:grey">Todos</th>
+                <th colspan="4" class="" style="background:lightgrey">Todos</th>
+                <th style="background:lightgrey"><a class="btn btn-xs btn-primary" href="{% url 'todo_form' %}">Create Todo</a></th>
             </tr>
             <tr>
                 <th>Id</th>
                 <th>Task</th>
                 <th>Description</th>
                 <th>End Date</th>
+                <th width="150">Actions</th>
             </tr>
             </thead>
             {% for todo in todos %}
@@ -21,9 +23,12 @@
                     <td>{{ todo.task }}</td>
                     <td>{{ todo.description }}</td>
                     <td>{{ todo.endDate }}</td>
+                    <td>
+                        <a class="btn btn-xs btn-primary" href="/todo/{{ todo.id }}/">Update</a>
+                        <a class="btn btn-xs btn-danger" href="/todo/delete/{{ todo.id }}/">Delete</a>
+                    </td>
                 </tr>
             {% endfor %}
-
         </table>
     </div>
 
